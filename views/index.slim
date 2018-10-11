@@ -1,0 +1,64 @@
+nav class="navbar navbar-inverse"
+  div class="container-fluid"
+    div class="navbar-header"
+      button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        span class="sr-only">Toggle navigation
+        span class="icon-bar"
+        span class="icon-bar"
+        span class="icon-bar"
+      a class="navbar-brand" href="/" この障害がすごい！
+
+    div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
+      ul class="nav navbar-nav navbar-right"
+        li
+          a href="/" Top
+        li
+          a href="/logout" logout
+
+div class="row"
+  div class="col-md-1"
+  
+  div class="col-md-5"
+    h1 id="container" How to play?
+    div class="container"
+      p はたらいておかねをためてガチャを引いて
+      p つよいエンジニアになろう
+    div class="panel panel-primary"
+      div class="panel-heading"
+        h3 class="panel-title" できること
+      div class="panel-body"
+        p お仕事: スタミナを消費しておかねと経験値をもらう
+        p ガチャ: おかねを消費してランダムでそうびを入手する
+        p バトル: つよい案件とたたかう(comming soon!)
+    div class="panel panel-primary"
+      div class="panel-heading"
+        h3 class="panel-title" ステータスについて
+      div class="panel-body"
+        ul
+          li 消費したスタミナは1分ごとに1回復します
+          li レベルが上がるとスタミナの最大値がふえます
+          li ガチャをひくと重複にかかわらずつよくなります
+  
+  div class="col-md-5"
+    h2 id="container" Enjoy working!
+    h3 id="container" #{$money}
+
+    a href="/work_do" class="btn btn-primary btn-lg" はたらく
+    p スタミナ：#{$after_work_stamina} / 100
+    div class="progress progress-striped"
+      div class="progress-bar progress-bar-success" style="width: #{$after_work_stamina}%"
+    - if $message_work != nil
+      p #{$message_work}
+    - if $motto_work_flag != nil
+      a href="/motto_work_do" class="btn btn-primary btn-lg" もっとはたらく
+      /a href="/unyo_do" class="btn btn-primary btn-lg" 運用を残す
+      
+      
+    p 障害リスク：#{$risk}
+    div class="progress progress-striped"
+      div class="progress-bar progress-bar-success" style="width: #{$risk}%"
+    p ライフ：#{$after_work_life}
+    div class="progress progress-striped"
+      div class="progress-bar progress-bar-success" style="width: #{$after_work_life}%"
+      
+  div class="col-md-1"
