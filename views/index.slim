@@ -21,27 +21,27 @@ div class="row"
   div class="col-md-5"
     h1 id="container" How to play?
     div class="container"
-      p 仕事をこなして
-      p つよいエンジニアになろう
+      p はたらいておかねをかせごう
     div class="panel panel-primary"
       div class="panel-heading"
         h3 class="panel-title" できること
       div class="panel-body"
-        p お仕事: スタミナを消費しておかねと経験値をもらう
-        p ガチャ: おかねを消費してランダムでそうびを入手する
-        p バトル: つよい案件とたたかう(comming soon!)
-    div class="panel panel-primary"
-      div class="panel-heading"
-        h3 class="panel-title" ステータスについて
-      div class="panel-body"
-        ul
-          li 消費したスタミナは1分ごとに1回復します
-          li レベルが上がるとスタミナの最大値がふえます
-          li ガチャをひくと重複にかかわらずつよくなります
+        p 受注: お仕事開始。見積もりが出てきます
+        p はたらく: 工数を使ってお仕事をします
+    - if $motto_work_flag != nil
+      div class="panel panel-primary"
+        div class="panel-heading"
+          h3 class="panel-title" 注意事項
+        div class="panel-body"
+          ul
+            li 運用を残すと障害リスクが上がります
+            li レベルB障害が起きると工数とおかねが減ります
+            li 障害リスクを下げるためには工数を消費します
+            li 工数がなくなるとゲームオーバーです
   
   div class="col-md-5"
     h2 id="container" Enjoy working!
-    h3 id="container" お給料合計 #{$money}
+    h3 id="container" おかね #{$money}
 
     - if $estimation == 0 &&  $syogaichance == nil && $stopflag == nil
       a href="/order" class="btn btn-primary btn-lg" 受注する
@@ -63,7 +63,7 @@ div class="row"
       p 障害リスク：#{$risk}
       div class="progress progress-striped"
         div class="progress-bar progress-bar-success" style="width: #{$risk}%"
-      p ライフ：#{$after_work_life}
+      p 工数（残業）：#{$after_work_life}
       div class="progress progress-striped"
         div class="progress-bar progress-bar-success" style="width: #{$after_work_life}%"
 
@@ -73,7 +73,7 @@ div class="row"
       </div>
     - if $plus_money != nil
       <div class="alert alert-success" role="alert">
-        p お給料をもらった +#{$plus_money}
+        p おかねをもらった +#{$plus_money}
       </div>
     - if $message_danger != nil
       <div class="alert alert-danger" role="alert">

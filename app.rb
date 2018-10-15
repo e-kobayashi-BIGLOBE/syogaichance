@@ -16,7 +16,6 @@ class App < Sinatra::Base
     $estimation = 0
   end
 
-
   get '/' do
     dead_end()
     slim :index
@@ -104,7 +103,7 @@ class App < Sinatra::Base
     message_clear() 
     roll = rand(1..10).to_i 
     if roll < 4
-      $message_danger = "レベルB障害が出ました。お給料が減ります"
+      $message_danger = "レベルB障害が出ました"
       if $after_work_life <= 1
         $after_work_life = 0
       else
@@ -135,13 +134,14 @@ class App < Sinatra::Base
     $estimation = 0
     $syogaichance = nil
     message_clear() 
+    $stopflag = nil
 
     redirect '/'
   end
   
   get '/game_over' do
     $stopflag = "stop"
-    $message_danger = "ほんとにもうはたらけません"
+    $message_danger = "ゲームオーバー。もうはたらけません"
     slim :index
   end
 
