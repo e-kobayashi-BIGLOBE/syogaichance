@@ -1,10 +1,12 @@
 # この障害がすごい！
 なるべく障害を起こさず命を大事にお金を稼ごう
 
+## install
 ```
 $ bundle install
 $ rackup config.ru 
 ```
+→ http://localhost:9292/
 
 ### できること
 - 受注: お仕事開始。見積もりが出てきます
